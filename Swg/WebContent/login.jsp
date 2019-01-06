@@ -4,9 +4,64 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.css">
 <title>Do what</title>
 </head>
 <body>
 
+	<!-- Nav쪽 -->
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	    	<button type="button" class="navbar-toggle collapsed" 
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expended="false">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="main.jsp">Home</a>
+	    </div>
+	    <div  id="#bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="#">1번 메뉴</a></li>
+	        <li><a href="#">2번 메뉴</a></li> 
+	        <li><a href="#">3번 메뉴</a></li> 
+	      </ul>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><!--  #을 해서 현재 가리키는 링크 없다는 곳을 알려주고 -->
+					<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expended="false">접속하기<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li class="active"><a href="login.jsp">로그인</a></li> <!-- active란  선택 현재의 홈페이지를 의미 -->
+						<li><a href="join.jsp">회원가입</a></li>
+					</ul>
+				</li>
+		</ul>		
+	  </div>
+	</nav>
+	
+	<!-- 로그인 쪽  -->
+	<div class="container">
+      <form class="form-signin" method="post" action="loginAction.jsp">
+        <h2 class="form-signin-heading">로그인 화면</h2>
+        <label for="inputEmail" class="sr-only">아이디</label>
+        <input type="text" class="form-control" placeholder="Id" name="userID" required autofocus>
+        <label for="inputPassword" class="sr-only">비밀번호</label>
+        <input type="password" class="form-control" placeholder="Password" name="userPassword" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="로그인">로그인</button>
+      </form>
+    </div> <!-- /container -->
+<script
+  src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+ <script src="js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </body>
 </html>

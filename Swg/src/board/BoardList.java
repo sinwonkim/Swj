@@ -1,6 +1,6 @@
-package boardList;
+package board;
 
-public class boardList {
+public class BoardList {
 	
 	private int boardID;
 	private String boardTitle;

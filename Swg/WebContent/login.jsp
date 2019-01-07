@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width initial-scale=1">
+<meta name="viewport" content="width=device-width ,initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>Do what</title>
 </head>
@@ -31,11 +31,11 @@
 	      </ul>
 	    </div>
 	    <ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><!--  #을 해서 현재 가리키는 링크 없다는 곳을 알려주고 -->
+				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expended="false">접속하기<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li class="active"><a href="login.jsp">로그인</a></li>
+						<li class="active"><a href="login.jsp">로그인</a></li> 
 						<li><a href="join.jsp">회원가입</a></li>
 					</ul>
 				</li>
@@ -43,14 +43,14 @@
 	  </div>
 	</nav>
 	
-	<!-- 로그인 쪽  -->
+	<!-- 로그인 폼  -->
 	<div class="container">
       <form class="form-signin" method="post" action="loginAction.jsp">
-        <h2 class="form-signin-heading">로그인 화면</h2>
-        <label for="inputEmail" class="sr-only">아이디</label>
-        <input type="text" class="form-control" placeholder="Id" name="userID" required autofocus>
-        <label for="inputPassword" class="sr-only">비밀번호</label>
-        <input type="password" class="form-control" placeholder="Password" name="userPassword" required>
+        <h2 class="form-signin-heading" style="text-align: center;">로그인 화면</h2>
+        <label for="userID" class="sr-only">아이디</label>
+        <input type="text" class="form-control" placeholder="Id" id="userID" name="userID" required autofocus>
+        <label for="userPassword" class="sr-only">비밀번호</label>
+        <input type="password" class="form-control" placeholder="Password" id="userPassword" name="userPassword" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
@@ -60,8 +60,7 @@
       </form>
     </div> <!-- /container -->
 <script
-  src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-1.12.4.js" ></script>
  <script src="js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </body>
 </html>

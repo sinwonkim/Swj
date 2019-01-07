@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="user.UserDAO" %>
 <%@ page import="java.io.PrintWriter" %> <!-- 자바스크립트 문장을 작성하기 위해  추가-->
-<% request.setCharacterEncoding("UTF-8"); %> <!--  UTF-8 데이터 한글처리 -->
-<jsp:useBean id="user" class="user.User" scope="page"></jsp:useBean>  <!-- vo -->
+<% request.setCharacterEncoding("UTF-8"); %> <!--  UTF-8 넘어오는 데이터 한글처리-->
+<jsp:useBean id="user" class="user.User" scope="page"></jsp:useBean>  <!-- 자바빈 객체 생성  -->
 <jsp:setProperty name="user" property="userID"/>
 <jsp:setProperty name="user" property="userPassword"/>
 <!DOCTYPE html>
@@ -19,17 +19,17 @@
 				userID = (String) session.getAttribute("userID");
 			}
 			if(userID != null) {
-				PrintWriter script =response.getWriter();
+				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('이미 로그인이 되어있습니다.')");
-				script.println("history.back()");
+				script.println("loaction.href = 'main.jsp'");
 				script.println("</script>");
 			}																			
 			UserDAO userDAO = new UserDAO();		
 			int result = userDAO.login(user.getUserID(),user.getUserPassword());
-			if(result==1){
-				session.setAttribute("userID", user.getUserID()); 
-				PrintWriter script =response.getWriter();
+			if(result == 1){
+				session.setAttribute("userID", user.getUserID()); //로그인 ,회원가입 했을 시 세션 저장 
+				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("location.href = 'main.jsp'");
 				script.println("</script>");

@@ -26,7 +26,7 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="#">1번 메뉴</a></li>
 	        <li><a href="#">2번 메뉴</a></li> 
-	        <li><a href="#">3번 메뉴</a></li> 
+	        <li><a href="boardList.jsp">게시판</a></li> 
 	      </ul>
 	    </div>
 	    <ul class="nav navbar-nav navbar-right">

@@ -27,7 +27,7 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="#">1번 메뉴</a></li>
 	        <li><a href="#">2번 메뉴</a></li> 
-	        <li><a href="#">3번 메뉴</a></li> 
+	        <li><a href="boardList.jsp">게시판</a></li> 
 	      </ul>
 	    </div>
 	    <ul class="nav navbar-nav navbar-right">
@@ -48,9 +48,9 @@
       <form class="form-signin" method="post" action="loginAction.jsp">
         <h2 class="form-signin-heading" style="text-align: center;">로그인 화면</h2>
         <label for="userID" class="sr-only">아이디</label>
-        <input type="text" class="form-control" placeholder="Id" id="userID" name="userID" required autofocus>
+        <input type="text" class="form-control" placeholder="아이디" id="userID" name="userID" required autofocus>
         <label for="userPassword" class="sr-only">비밀번호</label>
-        <input type="password" class="form-control" placeholder="Password" id="userPassword" name="userPassword" required>
+        <input type="password" class="form-control" placeholder="비밀번호" id="userPassword" name="userPassword" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me

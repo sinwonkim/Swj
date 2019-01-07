@@ -1,0 +1,114 @@
+1.DriverManager 클래스 
+
+DriverManager 클래스는 데이터 원본에 JDBC 드라이버를 통하여 커넥션을 만드는 역할을 한다.
+DriverManager Class.forName()메소드를 통해서 생성되는데, 이 메소드는 인터페이스 드라이버를 구현하는 작업 
+
+-Class.forName("com.mysql.jdbc.Driver")처럼 특정 클래스를 로딩하면 자동으로 객체가 생성되고 DriverManager에 등록된다.
+드라이버 클래스를 찾지 못할 경우 forName()메소드는 ClassNotFoundException 예외를 발생시키므로 반드시 예외 처리 할것 !
+
+- 일반적으로 드라이버 클래스들은 로드될 때 자신의 인스턴스를 생성하고, 자동적으로 DriverManager클래스 메소드를 호출하여 그 인스턴스를 등록한다.
+  DriverManager 클래스의 모든 메소드는 static 이기 때문에 반드시 객체를 생성시킬 필요가 x
+  DriverManager 클래스는 Connection 인터페이스의 구현 객체를 생성하는데 getConnection() 메소드를 사용함 
+
+--------------------------------------------------------------------------------------------------------------------------------------
+ex) 이 플젝에서 사용한  로그인 DAO쪽  사용한 DBMS는 mysql사용함
+public class UserDAO {
+
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	// 생성자를 만들고  자동으로 데이터베이스 커넥션 이루어지도록      UserDao 생성자 여기안에 내용이 실제로 mysql에 접속할 수 있도록 해주는거  
+	public UserDAO() {
+		try {
+			String dbURL ="jdbc:mysql://localhost:3306/BBS"; // 3306 내꺼 포트에 BBS는 mysqsl에서 내가 생성해준 database명이다 
+			String dbID = "root";
+			String dbPassword ="루트패스워드"; //root 패스워드
+			Class.forName("com.mysql.jdbc.Driver"); //Class.forName("드라이버 종류")처럼 특정 클래스를 로딩하면 자동으로 객체가 생성되고
+                                              //DriverManager에 등록됨
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword); // conn 객체안에 접속된정보가 담기게됨
+		} catch(Exception e) {
+			e.printStackTrace(); //오류처리 해준거       드라이버 클래스 찾지 못할경우 forName()메소드는 ClassNotFoundException 예외 발생시키므로 
+		}
+	}
+  
+---------------------------------------------------------------------------------------------------------------------------------------
+2.Connection 인터페이스 
+-특정 데이터 원본에 대한 커넥션은 Connection 인터페이스가 구현된 클래스의 객체로 표현됨 어떠한 SQL 문장을 실행시키기 전에 우선 Connection 객체가 
+ 있어야 함 Connection 객체는 특정 데이터 원본과 연결된 커넥션을 나타내고, 특정한 SQL 문장을 정의하고 실행시킬 수 있는 Statement객체를 생성할 떄도
+ Connection 객체를 사용함 
+ 
+ -또한 Connection 객체는 데이터베이스에 대한 데이터인 메타데이터에 관한 정보를 데이터 원본에 질의하는데 사용함 
+  이때에는 사용 가능한 테이블의 이름, 특정 테이블의 열에 정보 등이 포함 됨 
+  
+  
+3.Statement 인터페이스 
+-statement 인터페이스는  Connection 객체에 의해 프로그램에 리턴되는 객체에 의해 구현되는 일종의 메소드 집합을 정의함 
+ statement 객체는 Statement 인터페이스를 구현한 객체로, 항상 인수가 없는 Connection 클래스의 createStatement()메소드를 
+ 호출함으로써 얻어짐 
+ 
+  try {
+  
+    Statement stmt = connection.createStatement();
+    
+    
+  }catch(SQLException e) {
+    e.printStatckTrace(); // 에러 예외처리
+  }
+  
+ -Statement 객체를 생성하면 Statement 객체의 excuteQuery()메소드를 호출하여 SQL질의를 실행시킬 수 있다. 메소드의 인수로는 SQL질의 문장을 담은
+  String객체를 전달한다.
+  Statement 객체는 단순한 질의문을 사용할 경우에 좋다.
+  
+  
+4.PreparedStatement 인터페이스
+  
+ -PreparedStatement 인터페이스는 Connection 객체의 prepareStatement() 메소드를 사용해서 객체를 생성한다.
+  PreaparedStatement 객체는 SQL 문장이 미리 컴파일되고, 실행시간동안 인수 값을 위한 공간을 확보할 수 있다는 점에서 Statement객체와는 다름
+  
+ -PreparedStatement 객체는 동일한 질의문을 특정 값만 바꿔어서 여러 번 실행해야 할 때,많은 데이터를 다루기 떄문에 질의문을 정리해야 할 필요가
+  있을 때, 인순가 많아서 질의문을 정리해야 될 필요가 있을 때 사용하면 유용함
+  
+ -또한  Statement 객체의 SQL은 실행될 때 매번 서버에서 분석되어야 하는 반면, PreparedStatement 객체는 한 번 분석되면 재사용이 용이하다는 
+  장점을 가지고 있음
+  
+ -PreparedStatement 인터페이스는 각각의 인수에 대해 위치홀더를 사용하여 SQL문장을 정의할 수 있게 해줌 
+  위치홀더는 물음표? 로 표현된다. 위치홀더는 SQL문장에 나타나는 토큰인데, 이것은 SQL문장이 실행되기 전에 실제 값으로 대체됨 
+  이러한 방법을 이용하면 특정 값으로 문자열을 연결하는 방법보다 훨씬 쉽게 SQL문장을 만들 수 있다.
+  
+  try {
+  
+    String sql = "insert into 테이블명 value(?,?)"
+    pstmt = conn.preparedStatement(sql);
+    pstmt.setString(1,id);
+    pstmt.setString)2,password);
+    
+   catch (Exception e){
+   e.prinStackTrace();
+   }
+   
+  -PreparedStatement 객체는 각각의 SQL타입을 처리할 수 있는 setXxxx()메소드를 제공한다. 여기서 Xxx는 해당 테이블의 데이터 
+   타입과 관련이 있다. 해당 필드의 데이터 타입이 문자열이면 setString()이 되고, 해당 필드의 데이터 타임이 int이면 setInt()가 된다.
+   
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  

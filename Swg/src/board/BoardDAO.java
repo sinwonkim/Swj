@@ -148,4 +148,16 @@ public class BoardDAO {
 		return -1; // DB오류 
 	}
 	
+	public int delete(int boardID) {
+		String SQL = "UPDATE BoardList SET boardAvailable = 0 WHERE boardID = ? ";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, boardID);  
+			return pstmt.executeUpdate(); // insert에서 글 성공적으로 반영시 1반환 
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // DB오류 
+	}
+	
 }

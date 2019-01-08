@@ -50,7 +50,7 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="#">1번 메뉴</a></li>
 	        <li><a href="#">2번 메뉴</a></li> 
-	        <li class="active"><a href="#">게시판</a></li> 
+	        <li class="active"><a href="boardList.jsp">게시판</a></li> 
 	      </ul>
 	    </div>
 	    <!-- 로그인  되었을 때 view,로그인 되지 않았을 때 view -->
@@ -118,7 +118,7 @@
 					if(userID != null && userID.equals(boardList.getUserID())){
 				%>
 						<a href="boardUpdate.jsp?boardID=<%=boardID %>" class="btn btn-primary">수정</a>
-						<a href="deleteAction.jsp?boardID=<%=boardID %>" class="btn btn-primary">삭제</a>
+						<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="boardDeleteAction.jsp?boardID=<%=boardID %>" class="btn btn-primary">삭제</a>
 				<% 		
 					}
 				%>

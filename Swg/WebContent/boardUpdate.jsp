@@ -98,7 +98,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="글수정">
+				<input type="submit" class="btn btn-primary pull-right" value="글수정" onclick="return confirm('수정 하시겠습니까?')">
 			</form>		
 		</div>
 	</div>

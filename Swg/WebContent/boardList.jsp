@@ -54,7 +54,7 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="#">1번 메뉴</a></li>
 	        <li><a href="#">2번 메뉴</a></li> 
-	        <li class="active"><a href="#">게시판</a></li> 
+	        <li class="active"><a href="boardList.jsp">게시판</a></li> 
 	      </ul>
 	    </div>
 	    <!-- 로그인  되었을 때 view,로그인 되지 않았을 때 view -->

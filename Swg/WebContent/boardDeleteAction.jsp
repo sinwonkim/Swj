@@ -45,20 +45,12 @@
 				script.println("location.href= 'boardView.jsp'");
 				script.println("</script>");
 			} else {
-				if(request.getParameter("boardTitle") == null ||request.getParameter("boardContent") == null 
-						|| request.getParameter("boardTitle").equals("") || request.getParameter("boardContent").equals("")){
-							PrintWriter script = response.getWriter();
-							script.println("<script>");
-							script.println("alert('입력이 안된 사항이 있습니다.')");
-							script.println("history.back()");
-							script.println("</script>");	
-						} else {
 							BoardDAO boardDAO = new BoardDAO();
-							int result = boardDAO.update(boardID,request.getParameter("boardTitle"),request.getParameter("boardContent"));
+							int result = boardDAO.delete(boardID);
 							if(result == -1){ // 반환값 -1 실패
 								PrintWriter script = response.getWriter();
 								script.println("<script>");
-								script.println("alert('글 수정에 실패하였습니다.')");
+								script.println("alert('글 삭제에 실패하였습니다.')");
 								script.println("histroy.back()");
 								script.println("</script>");
 							}
@@ -71,7 +63,7 @@
 			}
 				
 			
-		     }
+		     
 		%>
 </body>
 </html>

@@ -94,6 +94,7 @@ public class BoardDAO {
 		return list;
 	}
 	
+	// 페이징 다음처리
 	public boolean nextPage(int pageNumber) {
 		String SQL = "SELECT * FROM BoardList WHERE boardID < ? AND boardAvailable = 1 ORDER BY boardID DESC LIMIT 10";
 		try {
@@ -107,6 +108,29 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	//글 불러오는 용도
+	public BoardList getBoardList(int boardID) {
+		String SQL = "SELECT * FROM BoardList WHERE boardID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, boardID);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				BoardList boardList = new BoardList();
+				boardList.setBoardID(rs.getInt(1));
+				boardList.setBoardTitle(rs.getString(2));
+				boardList.setUserID(rs.getString(3));
+				boardList.setBoardDate(rs.getString(4));
+				boardList.setBoardContent(rs.getString(5));
+				boardList.setBoardAvailable(rs.getInt(6));
+				return boardList;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }

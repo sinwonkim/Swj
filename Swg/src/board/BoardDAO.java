@@ -133,4 +133,19 @@ public class BoardDAO {
 		return null;
 	}
 	
+	// 업데이트 
+	public int update(int boardID,String boardTitle,String boardContent) {
+		String SQL = "UPDATE BoardList SET boardTitle = ?, boardContent = ? WHERE boardID = ? ";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, boardTitle); 
+			pstmt.setString(2, boardContent);
+			pstmt.setInt(3, boardID); 
+			return pstmt.executeUpdate(); // insert에서 글 성공적으로 반영시 1반환 
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // DB오류 
+	}
+	
 }

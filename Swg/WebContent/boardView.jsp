@@ -97,7 +97,7 @@
 					<tbody>
 						<tr>
 							<td style="width:20%">글제목</td>
-							<td colspan="2"><%= boardList.getBoardTitle() %></td>
+							<td colspan="2"><%= boardList.getBoardTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt;").replaceAll(">","&gt").replaceAll("\n","<br>") %></td>
 						</tr>
 						<tr>
 							<td>작성자</td>
@@ -109,7 +109,7 @@
 						</tr>
 						<tr>
 							<td>내용</td>
-							<td colspan="2" style="min-height:200px; text-align: left;"><%= boardList.getBoardContent() %></td>
+							<td colspan="2" style="min-height:200px; text-align: left;"><%= boardList.getBoardContent().replaceAll(" ", "&nbsp").replaceAll("<", "&lt;").replaceAll(">","&gt").replaceAll("\n","<br>") %></td>
 						</tr>
 					</tbody>
 				</table>
@@ -117,8 +117,8 @@
 				<%
 					if(userID != null && userID.equals(boardList.getUserID())){
 				%>
-					<a href="update.jsp?boardID<%=boardID %>" class="btn btn-primary">수정</a>
-					<a href="deleteAction.jsp?boardID<%=boardID %>" class="btn btn-primary">삭제</a>
+						<a href="update.jsp?boardID<%=boardID %>" class="btn btn-primary">수정</a>
+						<a href="deleteAction.jsp?boardID<%=boardID %>" class="btn btn-primary">삭제</a>
 				<% 		
 					}
 				%>

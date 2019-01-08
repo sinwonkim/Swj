@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class BoardDAO {
 	
@@ -68,6 +69,44 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		return -1; // DB¿À·ù 
+	}
+	
+	public ArrayList<BoardList> getList(int pageNumber){
+		String SQL = "SELECT * FROM BoardList WHERE boardID < ? AND boardAvailable = 1 ORDER BY boardID DESC LIMIT 10";
+		ArrayList<BoardList> list = new ArrayList<BoardList>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10 );
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardList boardList = new BoardList();
+				boardList.setBoardID(rs.getInt(1));
+				boardList.setBoardTitle(rs.getString(2));
+				boardList.setUserID(rs.getString(3));
+				boardList.setBoardDate(rs.getString(4));
+				boardList.setBoardContent(rs.getString(5));
+				boardList.setBoardAvailable(rs.getInt(6));
+				list.add(boardList);			 
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public boolean nextPage(int pageNumber) {
+		String SQL = "SELECT * FROM BoardList WHERE boardID < ? AND boardAvailable = 1 ORDER BY boardID DESC LIMIT 10";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber -1) * 10 );
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class UserDAO {
 	
@@ -22,6 +23,27 @@ public class UserDAO {
 			e.printStackTrace(); 
 		}
 	}
+	
+	public ArrayList<User> search(String userName){
+		String SQL = "SELECT * FROM USER WHERE userName LIKE ?";
+		ArrayList<User> userList = new ArrayList<>();
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userName);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				User user = new User();
+				user.setUserName(rs.getString(1));
+				user.setUserID(rs.getString(2));
+				user.setUserEmail(rs.getString(3));
+				userList.add(user);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return userList;
+	}
+	
 	
 	public int login(String userID,String userPassword) { 
 		String SQL = "SELECT userPassword FROM USER WHERE userID =?"; 

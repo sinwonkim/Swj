@@ -57,6 +57,12 @@
 	        <li class="active"><a href="boardList.jsp">게시판</a></li> 
 	      </ul>
 	    </div>
+	    <div class="col-xs-2">
+	    	<input class="form-control" type="text" size="10"> 
+	    </div>
+	    <div class="col-xs-2">
+	    	<button class="btn btn-primary" type="button">검색</button>
+	    </div>
 	    <!-- 로그인  되었을 때 view,로그인 되지 않았을 때 view -->
 	    <%
 	    	if(userID == null) {
@@ -121,7 +127,7 @@
 				if(pageNumber != 1){	
 			%>
 				<a href="boardList.jsp?pageNumber=<%=pageNumber -1 %>" class="btn btn-success btn-arrow-left">이전</a>
-			<%
+			<% 
 				} if(boardDAO.nextPage(pageNumber + 1)){
 			%>		
 				<a href="boardList.jsp?pageNumber=<%=pageNumber +1 %>" class="btn btn-success btn-arrow-left">다음</a>

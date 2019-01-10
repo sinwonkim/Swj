@@ -119,7 +119,7 @@
 				%>
 						<a href="boardUpdate.jsp?boardID=<%=boardID %>" class="btn btn-primary">수정</a>
 						<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="boardDeleteAction.jsp?boardID=<%=boardID %>" class="btn btn-primary">삭제</a>
-				<% 		
+				<%  		
 					}
 				%>
 				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">	

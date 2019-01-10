@@ -1,3 +1,4 @@
+<%@page import="com.sun.xml.internal.txw2.Document"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %> <!-- 자바 라이브러리 추가 -->
@@ -21,6 +22,20 @@
 		text-decoration: none;	
 	}
 </style>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+<script type='text/javascript'>
+	function filter(){
+		if($('#txtFilter').val()=="")
+			$("#languageTBody td").css('display','');			
+		else{
+			$("#languageTBody td").css('display','none');
+			$("#languageTBody td[id*='"+$('#txtFilter').val()+"']").css('display','');
+		}
+		return false;
+	}
+</script>
+
+
 </head>
 <body>
 
@@ -57,12 +72,13 @@
 	        <li class="active"><a href="boardList.jsp">게시판</a></li> 
 	      </ul>
 	    </div>
-	    <div class="col-xs-2">
-	    	<input class="form-control" type="text" size="10"> 
+	<!--     <div class="col-xs-2">
+	    	<input class="form-control" id="userName" onkeyup="searchFunction()" type="text" size="10"> 
+	    	
 	    </div>
 	    <div class="col-xs-2">
-	    	<button class="btn btn-primary" type="button">검색</button>
-	    </div>
+	    	<button class="btn btn-primary" onclick="searchFunction();" type="button">검색</button>
+	    </div> -->
 	    <!-- 로그인  되었을 때 view,로그인 되지 않았을 때 view -->
 	    <%
 	    	if(userID == null) {
@@ -97,6 +113,9 @@
 	</nav>
 	<div class="container">
 		<div class="row">
+	작성자 검색: <input type='text' id='txtFilter' onkeyup='{filter();return false}' onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'>
+	
+
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
@@ -106,22 +125,24 @@
 						<th style="background-color: #eeeeee; text-align:center;">작성일</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="languageTBody">
 					<%
 						BoardDAO boardDAO = new BoardDAO();
 						ArrayList<BoardList> list = boardDAO.getList(pageNumber);
 						for(int i = 0; i <list.size(); i++){
 					%>	
 					<tr>
-						<td><%= list.get(i).getBoardID()%></td>
-						<td><a href="boardView.jsp?boardID=<%= list.get(i).getBoardID()%>"><%=list.get(i).getBoardTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt;").replaceAll(">","&gt").replaceAll("\n","<br>")%></a></td>
-						<td><%= list.get(i).getUserID()%></td>
-						<td><%= list.get(i).getBoardDate().substring(0,11) + list.get(i).getBoardDate().substring(11,13)+"시 " + list.get(i).getBoardDate().substring(14,16) + "분" %></td>
+						<td id='<%=list.get(i).getUserID()%>'><%= list.get(i).getBoardID()%></td>
+						<td id='<%=list.get(i).getUserID()%>'><a href="boardView.jsp?boardID=<%= list.get(i).getBoardID()%>"><%=list.get(i).getBoardTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt;").replaceAll(">","&gt").replaceAll("\n","<br>")%></a></td>
+						<td id='<%=list.get(i).getUserID()%>'><%= list.get(i).getUserID()%></td>
+						<td id='<%=list.get(i).getUserID()%>'><%= list.get(i).getBoardDate().substring(0,11) + list.get(i).getBoardDate().substring(11,13)+"시 " + list.get(i).getBoardDate().substring(14,16) + "분" %></td>
 					</tr>
 					<% 		
 						}
 					%>
+					
 				</tbody>
+				
 			</table>
 			<%
 				if(pageNumber != 1){	
@@ -139,5 +160,17 @@
 	</div>
 	<script src="https://code.jquery.com/jquery-1.12.4.js" ></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script>
+$(document).ready(function() {
+    $("#keyword").keyup(function() {
+        var k = $(this).val();
+        $("#user-table > tbody > tr").hide();
+        var temp = $("#user-table > tbody > tr > td:nth-child(5n+2):contains('" + k + "')");
+
+        $(temp).parent().show();
+    })
+})
+</script>
+	
 </body>
 </html>

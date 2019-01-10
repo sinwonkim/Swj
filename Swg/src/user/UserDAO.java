@@ -24,25 +24,26 @@ public class UserDAO {
 		}
 	}
 	
-	public ArrayList<User> search(String userName){
-		String SQL = "SELECT * FROM USER WHERE userName LIKE ?";
+/*	public ArrayList<User> search(String userName){
+		String SQL = "SELECT * FROM USER WHERE userName LIKE '%ев%'";
 		ArrayList<User> userList = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, userName);
+			pstmt.setString(1,"%" + userName+"%");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				User user = new User();
 				user.setUserName(rs.getString(1));
 				user.setUserID(rs.getString(2));
 				user.setUserEmail(rs.getString(3));
+				user.setUserGender(rs.getString(4));
 				userList.add(user);
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return userList;
-	}
+	}*/
 	
 	
 	public int login(String userID,String userPassword) { 

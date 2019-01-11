@@ -38,7 +38,19 @@
 
 </head>
 <body>
+	<%!
+	int page = 22;
 
+	int countList = 10;
+
+	int countPage = 10;
+
+
+	int totalCount = 255;
+
+	int totalPage = totalCount / countList;
+	
+	%>
 	
 	<%
 		String userID = null;
@@ -51,7 +63,7 @@
 		}
 	%>
 
-
+	
 	<!-- Nav쪽 -->
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
@@ -63,31 +75,25 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">Home</a>
+			<a href="https://github.com/sinwonkim"><img src="images/unp2.PNG" alt="이미지 " style="width:50px;height:50px; font-style: lightblue">sinwon's git</a>
+	    </div>
+	    <div>
 	    </div>
 	    <div  id="#bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li><a href="#">1번 메뉴</a></li>
+	      <ul class="nav navbar-nav" >
+	        <li><a class="navbar-brand " href="main.jsp"  style="margin-left:0px;">Home</a></li>
 	        <li><a href="#">2번 메뉴</a></li> 
-	        <li class="active"><a href="boardList.jsp">게시판</a></li> 
+	        <li><a href="boardList.jsp">게시판</a></li> 
 	      </ul>
 	    </div>
-	<!--     <div class="col-xs-2">
-	    	<input class="form-control" id="userName" onkeyup="searchFunction()" type="text" size="10"> 
-	    	
-	    </div>
-	    <div class="col-xs-2">
-	    	<button class="btn btn-primary" onclick="searchFunction();" type="button">검색</button>
-	    </div> -->
-	    <!-- 로그인  되었을 때 view,로그인 되지 않았을 때 view -->
 	    <%
 	    	if(userID == null) {
 	    %>
-	    <ul class="nav navbar-nav navbar-right">
+	     <ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expended="false">접속하기<span class="caret"></span></a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu" style="min-width: 80px;">
 					<li><a href="login.jsp">로그인</a></li> 
 					<li><a href="join.jsp">회원가입</a></li>
 				</ul>
@@ -147,11 +153,11 @@
 			<%
 				if(pageNumber != 1){	
 			%>
-				<a href="boardList.jsp?pageNumber=<%=pageNumber -1 %>" class="btn btn-success btn-arrow-left">이전</a>
+				<a href="boardList.jsp?pageNumber=<%=pageNumber -1 %>" class="btn btn-success btn-arrow-left">다음</a>
 			<% 
 				} if(boardDAO.nextPage(pageNumber + 1)){
 			%>		
-				<a href="boardList.jsp?pageNumber=<%=pageNumber +1 %>" class="btn btn-success btn-arrow-left">다음</a>
+				<a href="boardList.jsp?pageNumber=<%=pageNumber +1 %>" class="btn btn-success btn-arrow-left">이전</a>
 			<% 	
 				}
 			%>
@@ -171,6 +177,5 @@ $(document).ready(function() {
     })
 })
 </script>
-	
 </body>
 </html>

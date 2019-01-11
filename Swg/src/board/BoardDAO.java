@@ -100,7 +100,7 @@ public class BoardDAO {
 		String SQL = "SELECT * FROM BoardList WHERE boardID < ? AND boardAvailable = 1 ORDER BY boardID DESC LIMIT 10";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext() - (pageNumber -1) * 10 );
+			pstmt.setInt(1, getNext() - (pageNumber -1) * 10 ); 
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				return true;
@@ -109,21 +109,6 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		return false;
-	}
-	
-	public int targetPage(int pageNumber) {
-		String SQL = "SELECT * COUNT(boardId) FROM boardList WHERE boardID > ?";
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext() - (pageNumber -1) * 10 );
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				return rs.getInt(1) / 10;
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return 0;
 	}
 	
 	//글 불러오는 용도

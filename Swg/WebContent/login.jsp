@@ -7,6 +7,10 @@
 <meta name="viewport" content="width=device-width ,initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>Do what</title>
+<style type="text/css">
+ a:hover { text-decoration: underline;}
+ a:link { text-decoration: none;}
+</style>
 </head>
 <body>
 
@@ -21,22 +25,24 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">Home</a>
+			<a href="https://github.com/sinwonkim"><img src="images/unp2.PNG" alt="이미지 " style="width:50px;height:50px; font-style: lightblue">sinwon's git</a>
+	    </div>
+	    <div>
 	    </div>
 	    <div  id="#bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li><a href="#">1번 메뉴</a></li>
+	      <ul class="nav navbar-nav" >
+	        <li><a class="navbar-brand " href="main.jsp"  style="margin-left:0px;">Home</a></li>
 	        <li><a href="#">2번 메뉴</a></li> 
 	        <li><a href="boardList.jsp">게시판</a></li> 
 	      </ul>
 	    </div>
 	    <ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true"
+					<a href="#" class="btn dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expended="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
+					<ul class="dropdown-menu" style="min-width: 80px;">
 						<li class="active"><a href="login.jsp">로그인</a></li> 
-						<li><a href="join.jsp">회원가입</a></li>
+						<li ><a href="join.jsp">회원가입</a></li>
 					</ul>
 				</li>
 		</ul>		

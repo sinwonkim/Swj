@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width ,initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css"> 
+<link rel="stylesheet" href="css/index.css"/>  <!-- 자바스크립트 index.css -->
 <title>Do what</title>
 <style type="text/css">
  a:hover { text-decoration: underline;}
@@ -15,8 +16,6 @@
 </style>
 </head>
 <body>
-
-	<!--  -->
 	<%
 		String userID = null;
 		if(session.getAttribute("userID") != null ){
@@ -24,8 +23,8 @@
 		}
 	%>
 
-
-	<!-- Nav쪽 -->
+		<!-- Nav쪽 -->
+	
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -36,7 +35,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 			</button>
-			<a href="https://github.com/sinwonkim"><img src="images/unp2.PNG" alt="이미지 " style="width:50px;height:50px; font-style: lightblue">sinwon's git</a>
+			<a href="https://github.com/sinwonkim"><img src="images/unp2.PNG" alt="이미지 " style="width:50px;height:50px; font-style: lightblue">Sinwon's git</a>
 	    </div>
 	    <div>
 	    </div>
@@ -79,15 +78,37 @@
 		%>	
 	  </div>
 	</nav>
-	<footer class="container-fluid text-center bg-lightgray">
 
-        <div class="copyrights" style="margin-top:25px;">
-            <p> © 2019. All Rights Reserved zhfps117@naver.com
+	<!-- javascript  -->
+	  <div class="js-clock">
+           <h1>00:00</h1>
+      </div>
+       <div class="js-weather"></div>
+       <form class="js-form form">
+            <input type = "text" placeholder="What is your name?"/>
+       </form>
+       <h4 class="js-greetings greetings"></h4>
+       <form class="js-toDoForm">
+           <input type = "text" placeholder="오늘의 계획"/>
+       </form>
+       <ol class="js-toDoList">
+       
+       </ol>
+       
+        <script src="js/clock.js"></script>
+        <script src="js/gretting.js"></script>
+        <script src="js/todo.js"></script>
+        <script src="js/bg.js"></script>
+        <script src="js/weather.js"></script>
+
+        <div class="footer">
+            <p> © 2019. All Rights Reserved 117@naver.com
                 <br>
-                <span>김신원</span></p>
-            <p><a href="https://github.com/sinwonkim"">sinwon's git <i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></p>
+                <span>sinwonkim </span></p>
+            <p><a href="https://github.com/sinwonkim"">Sinwon's Git <i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></p>
         </div>
-	</footer>
+	 
+	
 	<script src="https://code.jquery.com/jquery-1.12.4.js" ></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>

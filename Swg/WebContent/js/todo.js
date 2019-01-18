@@ -1,9 +1,11 @@
 const toDOform = document.querySelector(".js-toDoForm"),
     toDoInput = toDOform.querySelector("input"),
     toDoList = document.querySelector(".js-toDoList")
+    
 
 
 const TODOS_LS = "toDos";
+const  SPAN_CS = "span_class";
 
 
 let toDos = [];
@@ -31,13 +33,15 @@ function paintToDo(text) {
     const delBtn = document.createElement("button");
   
     delBtn.addEventListener("click",deleteToDo); // delBtn 클릭했을때 발생
-    /*const span = document.createElement("span");*/
+    const span = document.createElement("span");
     delBtn.innerHTML = "X";
     const newId = toDos.length + 1; 
-    li.innerText = text
-   /* li.appendChild(span);*/
+    span.innerText = text
+    li.appendChild(span);
+    /*span.classList.add(SPAN_CS);*/
     li.appendChild(delBtn);
     li.id = newId;
+    li.classList.add(SPAN_CS);
     toDoList.appendChild(li);
     const toDoObj = {
         text : text,

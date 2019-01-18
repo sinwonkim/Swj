@@ -1,3 +1,10 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+.bg-lightgray
+{
+    background-color:LightGray;
+}
+
+
 body {
     background-color:#ecf0f1;
 }
@@ -8,6 +15,17 @@ body {
 
 body {
     color : #34495e;
+}
+input { 
+	text-align: center;	
+}
+span {
+	margin-right:10px;
+
+}
+button {
+	width:30px;
+	
 }
 
 .clicked {
@@ -54,8 +72,21 @@ body {
 	text-align: center;
 }
 .js-toDoList {
-	text-align: left;
-	margin-left:520px;
+	text-align: center;
+	margin : 0 auto;
+	width:300px;
+	
+}
+ li.span_class {
+	display:block;
+	clear:both;
+}
+.span_class li > div {
+  float: left;
+}
+li.span_class > button {
+  display: block;
+  float: right;
 }
 .footer {
    position: fixed;
@@ -65,4 +96,8 @@ body {
    color: white;
    text-align: center;
 }
-
+.span_class {
+	width:200px;
+	margin:0 auto;
+	padding:0 auto;
+}

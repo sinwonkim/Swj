@@ -91,7 +91,7 @@
        <form class="js-toDoForm">
            <input type = "text" placeholder="오늘의 계획"/>
        </form>
-       <ol class="js-toDoList">
+       <ol class="js-toDoList" type="1">
        
        </ol>
        

@@ -17,14 +17,24 @@
 </div>
 
 
-## 게시판 화면 
+## 게시판 화면
 <div>
 <img src="https://i.imgur.com/UENxEC2.png">
 </div>
 
-## 게시판 수정
+## 게시판 글쓰기
+<div>
+<img src="https://i.imgur.com/VS1ft9d.png">
+</div>
+
+## 게시판 글 수정 ( 수정,삭제 권한 본인 아니면 x , id값으로 구분)
 <div>
 <img src="https://i.imgur.com/B1A9wzG.png">
+</div>
+
+## 게시판 글 삭제
+<div>
+<img src="https://i.imgur.com/KEmAWqA.png">
 </div>
 
 ## 게시판 검색

@@ -15,3 +15,8 @@
 <div>
 <img src="https://i.imgur.com/UENxEC2.png">
 </div>
+
+## 게시판 
+<div>
+<img src="https://i.imgur.com/B1A9wzG.png">
+</div>

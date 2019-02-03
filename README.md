@@ -6,5 +6,5 @@
 ## 게시판 기능 
 ### 글쓰기 ,수정,삭제, 작성자 검색 (aJax 라이브러리 활용 ),게시판 리스트10 제한 10기준으로 페이징
 <div>
-<img src="https://imgur.com/a/s1cuyIm">
+<img src="https://i.imgur.com/XP0PvtS.jpg">
 </div>

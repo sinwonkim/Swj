@@ -11,6 +11,12 @@
 <img src="https://i.imgur.com/XP0PvtS.jpg">
 </div>
 
+## 새로고침시 메인화면 변경 
+<div>
+<img src="https://i.imgur.com/yxTKT36.jpg">
+</div>
+
+
 ## 게시판 화면 
 <div>
 <img src="https://i.imgur.com/UENxEC2.png">

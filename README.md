@@ -37,7 +37,7 @@
 <img src="https://i.imgur.com/KEmAWqA.png">
 </div>
 
-## 게시판 검색
+## 게시판 검색 ( 작성자 명으로 검색)
 <div>
 <img src="https://i.imgur.com/F61aOsV.png">
 </div>

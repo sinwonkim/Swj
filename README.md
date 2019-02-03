@@ -5,6 +5,13 @@
 ### 화면단 부트스트랩 활용
 ## 게시판 기능 
 ### 글쓰기 ,수정,삭제, 작성자 검색 (aJax 라이브러리 활용 ),게시판 리스트10 제한 10기준으로 페이징
+
+## Main화면
 <div>
 <img src="https://i.imgur.com/XP0PvtS.jpg">
+</div>
+
+## 게시판 화면 
+<div>
+<img src="https://i.imgur.com/UENxEC2.png">
 </div>

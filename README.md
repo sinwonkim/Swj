@@ -1,5 +1,5 @@
 # TITLE : Make a simple plan !
-
+<hr/>
 
 ## Main (javascript를 모듈화하여 활용  , todo리스트,weatherAPI로 온도표시, 위치 ,브라우저 새로 로드시 배경화면 변경 )
 ## 게시판 화면

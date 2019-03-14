@@ -1,5 +1,16 @@
-# TITLE : Make a simple plan ! 
+# TITLE : For Plan
 <hr/>
+
+## 개발환경
+   OS : WINDOWS10 
+   DBMS : MYSQL
+   Tool : Eclipse Photon
+   WAS  : Apache Tomcat 7.0
+   
+## 사용기술 
+  FRONT END : HTML, CSS, Bootstrap, Javascript, Ajax, JSON
+  BACK END : JAVA
+
 
  Main (javascript를 모듈화하여 활용  , todo리스트,weatherAPI로 온도표시, 위치 ,브라우저 새로 로드시 배경화면 변경 )
  게시판 화면

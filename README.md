@@ -8,6 +8,7 @@
  글쓰기 ,수정,삭제, 작성자 검색 (aJax 라이브러리 활용 ),게시판 리스트10 제한 10기준으로 페이징
 
 <hr/>
+
 ## Main화면 (javascript를 모듈화하여 활용  , todo리스트,weatherAPI로 온도표시, 위치 ,브라우저 새로 로드시 배경화면 변경 )
 <div>
 <img src="https://i.imgur.com/XP0PvtS.jpg">

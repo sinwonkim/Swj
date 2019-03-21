@@ -7,8 +7,9 @@
    Tool : Eclipse Photon
    WAS  : Apache Tomcat 7.0
    
-## 사용기술 
+## 기술  
   FRONT END : HTML, CSS, Bootstrap, Javascript, Ajax, JSON
+  
   BACK END : JAVA
 
 
